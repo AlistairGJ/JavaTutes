@@ -5,7 +5,7 @@ public class Account
 {
     private String name;
     private String ID;
-    private double balance; //Public accessor is sufficient
+    protected double balance; //Public accessor is sufficient
 
     public Account(String name, String ID, double balance)
     {
