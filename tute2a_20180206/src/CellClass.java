@@ -1,13 +1,13 @@
 /**
  * Created by alistairgj on 6/2/18.
  */
-public abstract class Cell {
+public abstract class CellClass {
 
     protected double atp;
     protected double cytosol;
     protected double sodium;
 
-    public Cell(double atp, double cytosol, double sodium)
+    public CellClass(double atp, double cytosol, double sodium)
     {
         this.atp = atp;
         this.cytosol = cytosol;

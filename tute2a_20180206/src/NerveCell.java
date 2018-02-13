@@ -1,7 +1,7 @@
 /**
  * Created by alistairgj on 6/2/18.
  */
-public class NerveCell extends Cell{
+public class NerveCell extends CellClass {
 
     public NerveCell(double atp, double cytosol, double sodium)
     {

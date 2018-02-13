@@ -1,10 +1,13 @@
 
 
-public class MuscleCell extends Cell {
+public class MuscleCell extends CellClass {
 
-    public MuscleCell(double atp, double cytosol, double sodium)
+    private double calcium;
+
+    public MuscleCell(double atp, double cytosol, double calcium)
     {
-        super(atp, cytosol, sodium);
+        super(atp, cytosol, 6);
+        this.calcium = calcium;
     }
 
     public void consumeATP(double concentrationATP, double seconds)
@@ -15,6 +18,14 @@ public class MuscleCell extends Cell {
     public void expelSodium(double concentrationSodium, double seconds)
     {
         this.sodium += concentrationSodium + seconds * 2; // 2 nm Na per second
+    }
+
+    public String toString()
+    {
+        String s = "";
+        s += super.toString();
+        s += " Calcium = " + calcium;
+        return s;
     }
 
 }
