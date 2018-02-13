@@ -1,6 +1,5 @@
-/**
- * Created by alistairgj on 6/2/18.
- */
+
+
 public class MuscleCell extends Cell {
 
     public MuscleCell(double atp, double cytosol, double sodium)
