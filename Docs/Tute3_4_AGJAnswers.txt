@@ -1,1 +1,49 @@
 
+Q1. Polymorphism
+You have different types of objects, but they have a common interface. Interface = the way we interact with them. 
+e.g., you have two shapes (a square and circle). You could interact with them by telling them to draw. THe draw command on both of them is the same, but the outcome is different.
+
+Q2. Dynamic Binding - 'The technology that allows us to have polymorphism'
+- Lists do preserve order (but in other structures like sets, dictionaries, order may not be preserved...)
+- "The ability for the interpreter to select which method to run at RUN time, instead of COMPILE time"
+
+Q3. Typecasting
+- Converting from one data type into antoher data type
+- e.g., double into an int
+- "Telling the compiler that something is a different type"
+
+Q4. instanceof
+- A boolean expression that tells you if an object is of a certain type.
+- If yes return TRUE ...
+
+Q5. Visibility - Private / Protected / Public
+Private; Visible within just that class...
+Proteced; Visible to subclasses (of whatever class it is defined in)
+Public; Visible everywhere
+
+Q6. Abstract Class
+- A class (who's only job is to be a parent class), that you cannot make an instance of. For example shape class.
+
+Q7. Restrictions on a subclass in an abstract class
+You have to IMPLEMENT the abstract methods in the subclass - this is the rule. E.g., Abstract class Shape has a draw funtciton, the subclasses must also implemented. You can have non-abstract methods in the abstract class, this does not have to implemented in the subclasses.
+
+Q8. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+USER STORIES ...
+I want a 
+I want to know which system I can use
+
