@@ -27,7 +27,30 @@ Q6. Abstract Class
 Q7. Restrictions on a subclass in an abstract class
 You have to IMPLEMENT the abstract methods in the subclass - this is the rule. E.g., Abstract class Shape has a draw funtciton, the subclasses must also implemented. You can have non-abstract methods in the abstract class, this does not have to implemented in the subclasses.
 
-Q8. 
+Q8. Interface & when should you use one?
+
+public class NewClass
+{
+	double newMethod();
+	// Without a body / implementation
+}
+
+public class NewClass
+{
+	double newMethod()
+	{
+		//With a body
+	}
+	
+}
+
+Interfaces only allow you to do the FIRST style, in an INTERFACE...
+
+Querying an object to see if it has a certain type of functionality. If it does them we can access that functionality.
+
+
+
+
 
 
 
