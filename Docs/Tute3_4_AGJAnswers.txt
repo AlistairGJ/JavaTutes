@@ -48,25 +48,70 @@ Interfaces only allow you to do the FIRST style, in an INTERFACE...
 
 Querying an object to see if it has a certain type of functionality. If it does them we can access that functionality.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Question 2 - Steps.
+- Thought about what classes I would need
+- Thought about commonality between the classes
+- Thought about what fields I would need and what the commonality was
+- Making the classes
+	- Name (logical)
+	- Fields, name + type (logic)
+	- Constructor for fields
+	- Methods
+	- Accessors (getters) / mutators [may not always happen...]
+	- Thinking about the relationship between the classes
+		- Who is the parent of each class
+	- There is an abstract method in my abstract class
+	- Implemented abstract methods in child classes
 
 
 USER STORIES ...
 I want a 
-I want to know which system I can use
+I want to know which system I can use today (requirement)
+User Story = the sequence of steps in the IDEALIZED world they go through to meet a requirement (if you worry about now, it may corrupt the 'ideal' situation).
+
+- User Story  / Use Case
+- A sequence of steps
+	- Who
+	- What they do
+	- Who 
+	- What they do
+	- e.t.c.,
+	
+- "The user logs into the system"
+- The system presents the home page
+- "The user navigates to the equipment page"
+- The system presents the equipment page
+- "The user indicates what type of analysis they want to perform and when they want to perform it"
+- The system shows which equipment is available
+END OF STORY 1
+- Each line refers to an actor
+- Each line refers to an action that is performed (verbs)
+- Actor and a direction for them to follow
+
+Story 2 - User booking equipment (to be continued)
+- Can refer to first story, then extend
+
+NEXT
+- Create all the stories for situations where things don't go smoothly
+- By the time finished writting out, will have all actors (blah blah)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
