@@ -1,0 +1,110 @@
+Circle c = new Circle()
+Square s = new Square()
+
+// THIS IS STATIC BINDING
+c.draw();
+s.draw();
+
+List<Shape> shapes = new List<Shape>();
+shapes.add(c);
+shapes.add(s);
+
+for (Shape x : shapes)
+{
+    // DYNAMIC BINDING
+    x.draw();
+}
+
+
+https://stackoverflow.com/questions/1031273/what-is-polymorphism-what-is-it-for-and-how-is-it-used#1031385
+
+USER STORIES REMINDER
+
+public static void main()
+{
+    int x = 5;
+    double z;
+    z = x;
+}
+
+public static void my_function()
+{
+   
+}
+
+
+
+Circle c = new Circle()
+Square s = new Square()
+
+List<Shape> shapes = new List<Shape>();
+shapes.add(c);
+shapes.add(s);
+
+for (Shape x : shapes)
+{
+    if (x instanceof Circle)
+    {
+        Circle y = (Circle)x;
+        print(y.getRadius());
+    }
+}
+
+public abstract class Shape
+{
+    public String toString()
+    {
+        return "I am a shape";
+    }
+
+    abstract void draw();
+}
+
+public class Circle extends Shape implements IHasPerimeter, IHasArea
+{
+    public void draw()
+    {
+        // Does stuff
+    }
+
+    double getPerimeter()
+    {
+        return 2*pi*radius;
+    }
+
+    double getArea()
+    {
+        return pi * radius * radius;
+    }
+}
+
+for (Shape x : shapes)
+{
+    x.draw();
+
+    if (x instanceof IHasPerimeter)
+    {
+        IHasPerimeter y = (IHasPerimeter)x;
+        print("Perimiter is: " + y.getPerimeter());
+    }
+
+    if (x instanceof IHasArea)
+    {
+        IHasArea y = (IHasArea)x;
+        print("Area is: " + y.getArea());
+    }
+}
+
+
+
+Interfaces:
+
+public interface IHasPerimeter
+{
+    double getPerimeter();
+}
+
+public interface IHasArea
+{
+    double getArea();
+}
