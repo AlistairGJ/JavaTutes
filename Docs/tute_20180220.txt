@@ -1,2 +1,12 @@
 1. Inner Classes
 - Embedding one class within another
+- Why is it useful... (there is NO performance penalty)
+a. Only call an inner class when a certain event happens ('Only need the 
+class to handle a single event') - more generally, 'only the class within the 
+context of the outer class'
+b. We can prevent other classes accidentally using this class ('may be useful to us in a particular context, when don't want to have to think / worry about all the things other classes may ask of this class)
+- 'When you make a PUBLIC class, you make it to be BULLETPROOF'
+---> e.g., special checks and so on
+
+Also - avoids pulluting your namespace
+
