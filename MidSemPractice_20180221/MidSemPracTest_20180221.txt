@@ -1,0 +1,98 @@
+MidSemPracTest_20180221
+
+1.a.
+
+Difference between list and array...
+
+- They both can store e.g., ints and Strings
+- Both preserve order
+- They both allow random access (can get to any part instantly)
+- KEY DIFFERENCE - Array's CANNOT change their size once they instantiated
+
+a. Shape[] someShapes; // Haven't created it, only declared it... told the compiler 'someShapes is an array of shapes'
+
+DECLARING					- 		Shape[] someShapes;
+CONSTRUCTING				-		someShapes = new Shape[5];
+DECLARATION & CONSTRUCTION  -  		Shape[] someShapes = new Shape[5];
+
+- Might have different methods constructing (e.g., giving different size)
+- Declare outside class
+
+1.b.
+
+// Old class declaration
+public class Shape {...}
+public class Circle extends Shape {...}
+public class Square extends Shape {...}
+public class Triangle extends Shape {...}
+Shape[] someShapes;
+
+// New
+public interface Pointy {...}
+public class Shape {...}
+public class Circle extends Shape {...}
+public class Square extends Shape implements Pointy {...}
+public class Triangle extends Shape implements Pointy {...}
+Pointy[] someShapes;
+
+Note: "EXTENDS classes & IMPLEMENT interfaces"
+('Definition' = Declaration)
+
+Q a.3 - Difference b/t a constructor and a 'normal' method, about 1 line each
+
+"In the constructor the thing that is returned happens automatically, don't say 'there is no return type', it is that the return type is the same as the METHOD NAME which is also the same as the CLASS NAME"
+
+public Shape()			// CONSTRUCTOR
+{
+
+}
+
+public int getThing()	// METHOD
+{
+	return thing;
+}
+
+Q a.4 - Overriding / Overloading
+
+a. Multiple methods with the same name - BOTH
+b. 
+c.
+d.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
