@@ -1,0 +1,75 @@
+Welcome to MyTi!
+Choose an option:
+1. Buy a travel pass
+2. Charge my MyTi
+3. Show remaining credit
+0. Quit
+Please make a selection: 3
+
+Which card id: lc
+Your credit = $0.00
+
+Choose an option:
+1. Buy a travel pass
+2. Charge my MyTi
+3. Show remaining credit
+0. Quit
+Please make a selection: 2
+
+Which card id: lc
+How much do you want to add: 200
+Sorry, the max amount of credit allowed is $100.00
+
+How much do you want to add: 81
+Sorry, you can only add multiples of $5.00
+
+How much do you want to add: 10
+
+Your credit = $10.00
+
+Choose an option:
+1. Buy a travel pass
+2. Charge my MyTi
+3. Show remaining credit
+0. Quit
+Please make a selection: 1
+
+Which card id: lc
+
+What time period:
+a) 2 Hours
+b) All Day
+c) cancel
+Your selection: a
+
+Which zone:
+a) Zone 1
+b) Zones 1 and 2
+c) cancel
+Your selection: b
+
+You purchased 2 Hour pass on lc for Zones 1 and 2, costing $5.00
+Your remaining credit is $5.00
+
+Choose an option:
+1. Buy a travel pass
+2. Charge my MyTi
+3. Show remaining credit
+0. Quit
+Please make a selection: 1
+
+Which card id: lc
+
+What time period:
+a) 2 Hours
+b) All Day
+c) cancel
+Your selection: b
+
+Which zone:
+a) Zone 1
+b) Zones 1 and 2
+c) cancel
+Your selection: b
+
+Sorry, you don’t have enough credit for that selection
