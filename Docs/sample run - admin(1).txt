@@ -1,0 +1,76 @@
+Welcome to MyTi!
+Choose an option:
+1. Buy a travel pass
+2. Charge my MyTi
+3. Show remaining credit
+4. Take a Journey using a MyTi card
+5. Print all Journeys made using all MyTi cards
+6. Show Station statistics
+7. Add a new User
+0. Quit
+Please make a selection: 5
+
+All Journeys made using MyTi cards
+
+MyTi Card: x1             // print card id
+1. All Day Zone 1 Concession Travel Pass purchased on Monday at 1500
+Journeys on this pass:
+a. Central to Flagstaff at 900
+b. Flagstaff to Richmond at 1000
+c. Richmond to Flagstaff at 1500
+
+MyTi Card: x2
+Owner: Lawrence Cavedon   // print card owner IF THERE IS ONE
+Purchases by x2:
+1. 2 Hour Zone 1-2 Travel Pass purchased on Monday at 1500
+Journeys on this pass:
+a.	Flagstaff to Epping at 1600
+
+
+Options:
+1. Buy a travel pass
+2. Charge my MyTi
+3. Show remaining credit
+4. Take a Journey using a MyTi card
+5. Print all Journeys made using all MyTi cards
+6. Show Station statistics
+7. Add a new User
+0. Quit
+What is your selection: 6
+
+Station travel statistics:
+Central: 1 journeys started here, 0 journeys ended here
+Flagstaff: 2 journeys started here, 2 journeys ended here
+Richmond: 1 journey started here, 1 journeys ended here
+Lilydale: 0 journeys started here, 0 journeys ended here
+Epping: 0 journeys started here, 1 journeys ended here
+
+
+Options:
+1. Buy a travel pass
+2. Charge my MyTi
+3. Show remaining credit
+4. Take a Journey using a MyTi card
+5. Print all Journeys made using all MyTi cards
+6. Show Station statistics
+7. Add a new User
+0. Quit
+What is your selection: 7
+
+Choose an id: lc
+Sorry, that id is already in use.
+Choose an id: as
+User name: andy song
+User email address: andy.song@rmit.edu.au
+Attach a MyTi card (y/n): y
+Card id (or cancel (c)): x1
+Sorry, that card already has a user; only 1 user per card is allowed
+Card id (or cancel (c)): x2
+Created new User with id as, with Card x2
+
+// NOTE: it would make sense to have options 
+//    8: Create a new MyTi Card 
+//    9: Attach a Myti Card to a User
+// but this is NOT REQUIRED (and no bonus marks for it)
+
+

@@ -1,0 +1,122 @@
+Welcome to MyTi!
+Choose an option:
+1. Buy a travel pass
+2. Charge my MyTi
+3. Show remaining credit
+4. Take a Journey using a MyTi card
+0. Quit
+Please make a selection: 3
+
+Which card id: lc
+Your credit = $0.00
+
+
+Choose an option:
+1. Buy a travel pass
+2. Charge my MyTi
+3. Show remaining credit
+4. Take a Journey using a MyTi card
+0. Quit
+Please make a selection: 2
+
+Which card id: lc
+How much do you want to add: 200
+Sorry, the max amount of credit allowed is $100.00
+
+How much do you want to add: 81
+Sorry, you can only add multiples of $5.00
+
+How much do you want to add: 10
+
+Your credit = $10.00
+
+
+Choose an option:
+1. Buy a travel pass
+2. Charge my MyTi
+3. Show remaining credit
+4. Take a Journey using a MyTi card
+0. Quit
+Please make a selection: 1
+
+Which card id: lc
+
+What time period:
+a) 2 Hours
+b) All Day
+c) cancel
+Your selection: a
+
+Day of purchase: wed      <<<<< NEW: DAY and TIME of Travel Pass
+Time of purchase: 1100    <<<<< These are INPUT by the user
+
+Which zone:
+a) Zone 1
+b) Zones 1 and 2
+c) cancel
+Your selection: b
+
+You purchased 2 Hour pass on lc for Zones 1 and 2, costing $5.00
+Your remaining credit is $5.00
+
+
+Choose an option:
+1. Buy a travel pass
+2. Charge my MyTi
+3. Show remaining credit
+4. Take a Journey using a MyTi card
+0. Quit
+Please make a selection: 4             <<<<< NEW: TAKE A JOURNEY
+
+Which card id: lc
+
+What day is your Journey: wed
+What time is your Journey: 1400
+
+You do not have a travel pass covering that day/time.
+
+
+Choose an option:
+1. Buy a travel pass
+2. Charge my MyTi
+3. Show remaining credit
+4. Take a Journey using a MyTi card
+0. Quit
+Please make a selection: 4             <<<<< TAKE: BUY A JOURNEY
+
+Which card id: lc
+
+What day is your Journey: wed
+What time is your Journey: 1200
+Start station: central
+End station: epping
+
+Your journey is for Zone 1+2 on wed starting at 1200. 
+Enjoy your travel!
+
+
+Choose an option:
+1. Buy a travel pass
+2. Charge my MyTi
+3. Show remaining credit
+4. Take a Journey using a MyTi card
+0. Quit
+Please make a selection: 1
+
+Which card id: lc
+
+What time period:
+a) 2 Hours
+b) All Day
+c) cancel
+Your selection: b
+
+Day of purchase: wed
+
+Which zone:
+a) Zone 1
+b) Zones 1 and 2
+c) cancel
+Your selection: b
+
+Sorry, you don’t have enough credit for that selection
