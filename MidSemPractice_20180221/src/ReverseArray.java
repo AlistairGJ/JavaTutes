@@ -6,12 +6,28 @@ public class ReverseArray
 
     public static Object[] reverse(Object[] array)
     {
-        Object[] newArray = new Object[array.length];
+        int numberOfNull = 0;
 
-        for(int source = array.length; source > 1; source--)
+        for(int source = array.length - 1; source >= 0; source--)
         {
-            int destination = 0;
-            newArray[destination] = array[source];
+            if (array[source] == null)
+            {
+                numberOfNull++;
+            }
+        }
+
+        Object[] newArray = new Object[array.length - numberOfNull];
+
+        int destination = 0;
+
+
+        for(int source = array.length - 1; source >= 0; source--)
+        {
+            if(array[source] != null)
+            {
+                newArray[destination] = array[source];
+                destination++;
+            }
         }
         return newArray;
     }
@@ -22,11 +38,12 @@ public class ReverseArray
 
     public static void main(String args[])
     {
-        Integer[] newArray = new Integer[6];
+        Object[] newArray = new Integer[6];
 
         newArray[0] = new Integer(2);
         newArray[1] = new Integer(4);
-        newArray[2] = new Integer(1);
+        newArray[2] = null;
+        //newArray[2] = new Integer(1);
         newArray[3] = new Integer(10);
         newArray[4] = new Integer(15);
         newArray[5] = new Integer(20);
@@ -36,7 +53,7 @@ public class ReverseArray
             System.out.println(newArray[i]);
         }
 
-        ReverseArray.reverse(newArray);
+        newArray = ReverseArray.reverse(newArray);
 
         for (int i = 0; i < newArray.length; i++)
         {
@@ -45,5 +62,7 @@ public class ReverseArray
 
     }
 }
+
+// Create an array of size (size = original size - number of nulls)
 
 // "Array of objects comes in, array of objects comes out"

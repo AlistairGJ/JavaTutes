@@ -55,9 +55,15 @@ public int getThing()	// METHOD
 Q a.4 - Overriding / Overloading
 
 a. Multiple methods with the same name - BOTH
-b. 
-c.
-d.
+b. Multiple methods with the same name & same number/type of arguments - OVERRIDING true, 	OVERLOADING false
+c. Involves multiple methods in the same class - OVERLOADING true
+d. The behaviour of the methods may be re-defined - BOTH true
+
+When overloading, distinguish by what PARAMETERS are taken
+
+- Generally you would use overloading to make some parameters optional
+
+'If the parent class has a method, then you can override that method in the subclass'
 
 
 
