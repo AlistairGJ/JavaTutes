@@ -1,3 +1,5 @@
+import utilities.DateTime;
+
 import java.util.ArrayList;
 
 /**
@@ -19,7 +21,9 @@ abstract class RentalProperty //Abstract class as will never instantiate 'proper
     //"Instead of checking by field, you check by asking 'instance of' ANS = 'Instance
     //of one of the classes' - more flexibility
     private PropertyStatus currentPropertyStatus; //ONLY Available, Rented, Maintenance
-    private ArrayList<RentalRecord> rentalHistory;
+    private RentalRecord[] rentalHistory; //As per instruction MUST be type array (list would have allowed
+    //old values to drop without extra code...
+    private int countOfRecord;
 
     //Constructor
     public RentalProperty(String propertyID, String streetNum, String streetName,
@@ -32,7 +36,8 @@ abstract class RentalProperty //Abstract class as will never instantiate 'proper
         this.suburb = suburb;
         this.numBedrooms = numBedrooms;
         this.currentPropertyStatus = currentPropertyStatus;
-        this.rentalHistory = new ArrayList<RentalRecord>();
+        this.rentalHistory = new RentalRecord[10];
+        countOfRecord = 0; //Count will always start at 0 for our system
     }
 
     //Need accessors - getters
@@ -66,10 +71,108 @@ abstract class RentalProperty //Abstract class as will never instantiate 'proper
         return currentPropertyStatus;
     }
 
+    public abstract String getPropertyType();
+
+    //Placeholder for countOfRecord accessor!
+
     public abstract double getRentalRate(); //Abstract because 'rental property' doesn't
     //"know what this is" BUT the subclasses do "know what this is"
-
     //Method to construct the ID - MUST be unique
+
+    public void addRentalRecord(RentalRecord newRecord)
+    {
+        if (countOfRecord == 10)
+        {
+            countOfRecord = 9;
+        }
+
+        for (int index = countOfRecord; index >= 1; index--)
+        {
+            rentalHistory[index] = rentalHistory[index - 1];
+        }
+
+        rentalHistory[0] = newRecord;
+        countOfRecord++;
+    }
+
+    //Logic for loop above
+    // Count = 0
+    // if count = 0
+    // add at index 0
+    // count
+    // count = 1
+    // if count = 1
+    // move 0 to 1
+    // add at index 0
+    // count
+    // if count = 2
+    // move 1 to 2
+    // move 0 to 1
+    // add at index 0
+    // count
+    // if count = 3
+    // move index 2 to 3
+    // move index 1 to 2
+    // move index 0 to 1
+    // add at index 0 nb
+
+
+    //"Conditions for renting"
+    public abstract boolean rent(String customerID, DateTime rentDate, int numOfRentDay);
+
+    protected void doRent(String customerID, DateTime rentDate, int numOfRentDay)
+    {
+        //1. Updating the property status, COMMON
+        currentPropertyStatus = PropertyStatus.RENTED;
+
+        //2. Creating a new rental record, COMMON
+        // Call the RentalRecord constructor
+
+        double rentalFee = getRentalRate() * numOfRentDay;
+
+        DateTime estReturnDate = new DateTime(rentDate, numOfRentDay);
+
+        RentalRecord aRecordi = new RentalRecord(rentDate, estReturnDate,
+                null, rentalFee,
+                0.0, customerID, propertyID);
+
+        //3. Updating the rental record array, COMMON
+        addRentalRecord(aRecordi);
+
+        //4. and any other operations you consider necessary.
+        // From checking the rest of this class, nothing else
+    }
+
+    public String toString()
+    {
+        String s = propertyID + ":" + streetNum + ":" + streetName + ":" +
+                suburb + ":" + getPropertyType() + ":" + numBedrooms + ":" +
+                currentPropertyStatus;
+
+        return s;
+    }
+
+    public String getDetails()
+    {
+        String s = "Record ID:               " + recordID + '\n';
+        s +=       "Rent Date:               " + rentDate + '\n';
+        s +=       "Estimated Return Date:   " + estimatedReturnDate + '\n';
+        if (actualReturnDate != null)
+        {
+            s +=   "Actual Return Date:      " + actualReturnDate + '\n';
+            s +=   "Rental Fee:              " + String.format("%.2f", rentalFee) + '\n';
+            s +=   "Late Fee:                " + String.format("%.2f", lateFee) + '\n';
+        }
+
+        return s;
+    }
+
+}
+
+
+
+
+
     /*void constructID(){
         String Apartment;
         if(propertyType == Apartment)
@@ -79,7 +182,3 @@ abstract class RentalProperty //Abstract class as will never instantiate 'proper
             ();
         }
     }*/
-
-
-
-}

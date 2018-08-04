@@ -1,5 +1,5 @@
 
-public class PremiumSuite extends RentalProperty
+public abstract class PremiumSuite extends RentalProperty
 {
     //Constructor
     public PremiumSuite(String propertyID, String streetNum, String streetName,

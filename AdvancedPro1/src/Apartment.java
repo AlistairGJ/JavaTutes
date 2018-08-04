@@ -1,3 +1,7 @@
+import utilities.CalendarUtils;
+import utilities.DateTime;
+import java.util.Calendar;
+
 import java.util.ArrayList;
 
 public class Apartment extends RentalProperty
@@ -26,4 +30,44 @@ public class Apartment extends RentalProperty
             return 319;
         }
     }
+
+    //"Conditions for renting"
+    public boolean rent(String customerID, DateTime rentDate, int numOfRentDay)
+    {
+        if (getCurrentPropertyStatus() != PropertyStatus.AVAILABLE)
+        {
+            return false;
+        }
+
+        if (CalendarUtils.getDayOfWeek(rentDate) >= CalendarUtils.SUNDAY &&
+                CalendarUtils.getDayOfWeek(rentDate) <= CalendarUtils.THURSDAY &&
+                numOfRentDay < 2)
+        {
+            return false;
+        }
+
+        if (CalendarUtils.getDayOfWeek(rentDate) >= CalendarUtils.FRIDAY &&
+                CalendarUtils.getDayOfWeek(rentDate) <= CalendarUtils.SATURDAY &&
+                numOfRentDay < 3)
+        {
+            return false;
+        }
+
+        if (numOfRentDay > 28)
+        {
+            return false;
+        }
+
+        //1. Updating the property status, COMMON
+        //2. Creating a new rental record, COMMON
+        //3. Updating the rental record array, COMMON
+        //4. and any other operations you consider necessary.
+
+        // We will add a ... (method)
+
+        doRent(customerID, rentDate, numOfRentDay);
+
+        return true;
+    }
 }
+

@@ -1,3 +1,24 @@
+
+
+package utilities;
+import java.util.Calendar;
+
+public class CalendarUtils
+{
+    public static final int SUNDAY = 1;
+    public static final int THURSDAY = 5;
+
+    public static int getDayOfWeek(DateTime date)
+    // Accessing methods directly, so must be STATIC
+    {
+        Calendar c = Calendar.getInstance();
+        c.setTimeInMillis(date.getTime());
+        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+        return dayOfWeek;
+    }
+
+}
+
 import utilities.DateTime;
 
 public class RentalRecord
@@ -12,8 +33,9 @@ public class RentalRecord
     private String customerID;
 
     //Constructor
-    public RentalRecord(DateTime rentDate, DateTime estimatedReturnDate, DateTime actualReturnDate,
-                        double rentalFee, double lateFee, String customerID, String propertyID)
+    public RentalRecord(DateTime rentDate, DateTime estimatedReturnDate, 
+		DateTime actualReturnDate, double rentalFee, double lateFee, 
+			String customerID, String propertyID)
     {
         this.rentDate = rentDate;
         this.estimatedReturnDate = estimatedReturnDate;
@@ -21,7 +43,8 @@ public class RentalRecord
         this.rentalFee = rentalFee;
         this.lateFee = lateFee;
         this.customerID = customerID;
-        this.recordID = propertyID + "_" + customerID + "_" + rentDate.getEightDigitDate();
+        this.recordID = propertyID + "_" + customerID + "_" 
+			+ rentDate.getEightDigitDate();
     }
 
     //Need accessors - getters
@@ -79,19 +102,58 @@ public class RentalRecord
         return s;
     }
 
+    //getFormattedDate()
+
     public String getDetails()
     {
-        String s = "Record ID:               " + recordID + '\n';
-        s +=       "Rent Date:               " + rentDate + '\n';
-        s +=       "Estimated Return Date:   " + estimatedReturnDate + '\n';
-        if (actualReturnDate != null)
-        {
-            s +=   "Actual Return Date:      " + actualReturnDate + '\n';
-            s +=   "Rental Fee:              " + String.format("%.2f", rentalFee) + '\n';
-            s +=   "Late Fee:                " + String.format("%.2f", lateFee) + '\n';
-        }
-
-        return s;
+        return null;
     }
 
 }
+
+
+
+public class CalendarUtils
+{
+    public static final int SUNDAY = 1;
+    public static final int MONDAY = 2;
+    public static final int TUESDAY = 3;
+    public static final int WEDNESDAY = 4;
+    public static final int THURSDAY = 5;
+    public static final int FRIDAY = 6;
+    public static final int SATURDAY = 7;
+
+    public static int getDayOfWeek(DateTime date)
+    // Accessing methods directly, so must be STATIC
+    {
+        Calendar c = Calendar.getInstance();
+        c.setTimeInMillis(date.getTime());
+        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+        return dayOfWeek;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
