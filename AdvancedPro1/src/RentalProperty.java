@@ -1,7 +1,5 @@
 import utilities.DateTime;
 
-import java.util.ArrayList;
-
 /**
  * Created by alistairgj on 28/7/18.
  */
@@ -123,7 +121,7 @@ abstract class RentalProperty //Abstract class as will never instantiate 'proper
     protected void doRent(String customerID, DateTime rentDate, int numOfRentDay)
     {
         //1. Updating the property status, COMMON
-        currentPropertyStatus = PropertyStatus.RENTED;
+        currentPropertyStatus = PropertyStatus.Rented;
 
         //2. Creating a new rental record, COMMON
         // Call the RentalRecord constructor
@@ -154,16 +152,23 @@ abstract class RentalProperty //Abstract class as will never instantiate 'proper
 
     public String getDetails()
     {
-        String s = "Record ID:               " + recordID + '\n';
-        s +=       "Rent Date:               " + rentDate + '\n';
-        s +=       "Estimated Return Date:   " + estimatedReturnDate + '\n';
-        if (actualReturnDate != null)
-        {
-            s +=   "Actual Return Date:      " + actualReturnDate + '\n';
-            s +=   "Rental Fee:              " + String.format("%.2f", rentalFee) + '\n';
-            s +=   "Late Fee:                " + String.format("%.2f", lateFee) + '\n';
-        }
+        String s = "Property ID:       " + propertyID + '\n';
+        s +=       "Address:           " + streetNum + " " + streetName + " " + suburb + '\n';
+        s +=       "Type:              " + getPropertyType() + '\n';
+        s +=       "Bedroom:           " + numBedrooms + '\n';
+        s +=       "Status:            " + currentPropertyStatus + '\n';
+        return s;
+    }
 
+    protected String getRentalRecordDetails()
+    {
+        String s =  "RENTAL RECORD" + (countOfRecord == 0 ? ":     empty" : "") + '\n';
+
+        for (int index = 0; index < countOfRecord; index++)
+        {
+            s += rentalHistory[index].getDetails(); //We now 'have access' to all the stuff in rental rec.
+            s += "--------------------------------------";
+        }
         return s;
     }
 

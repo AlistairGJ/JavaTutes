@@ -3,5 +3,5 @@
  */
 public enum PropertyStatus
 {
-    AVAILABLE, RENTED, MAINTENANCE
+    Available, Rented, Maintenance
 }

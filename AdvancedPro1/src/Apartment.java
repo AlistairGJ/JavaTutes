@@ -1,8 +1,5 @@
 import utilities.CalendarUtils;
 import utilities.DateTime;
-import java.util.Calendar;
-
-import java.util.ArrayList;
 
 public class Apartment extends RentalProperty
 {
@@ -12,6 +9,12 @@ public class Apartment extends RentalProperty
     //Super because we are calling the constructor from the super class
     {
         super(propertyID, streetNum, streetName, suburb, numBedrooms, currentPropertyStatus);
+    }
+
+    @Override
+    public String getPropertyType()
+    {
+        return "Apartment";
     }
 
     @Override
@@ -34,7 +37,7 @@ public class Apartment extends RentalProperty
     //"Conditions for renting"
     public boolean rent(String customerID, DateTime rentDate, int numOfRentDay)
     {
-        if (getCurrentPropertyStatus() != PropertyStatus.AVAILABLE)
+        if (getCurrentPropertyStatus() != PropertyStatus.Available)
         {
             return false;
         }
@@ -69,5 +72,13 @@ public class Apartment extends RentalProperty
 
         return true;
     }
+
+    public String getDetails()
+    {
+        String s = super.getDetails();
+        s += getRentalRecordDetails();
+        return s;
+    }
+
 }
 

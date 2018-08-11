@@ -1,4 +1,3 @@
-import utilities.CalendarUtils;
 import utilities.DateTime;
 
 /**
@@ -16,15 +15,49 @@ public class TestHarness //Should this class be called main??? (no...)
 
         // Test Apartment
         // 1. Create Apartment(s)
-        Apartment apartment = new Apartment("A_BobsDungeon", "13",
+        Apartment apartment_bobsDungeon = new Apartment("A_BobsDungeon", "13",
                 "Scream Street", "Frankston", 2,
-                PropertyStatus.AVAILABLE);
+                PropertyStatus.Available);
 
         // Print state
-        System.out.println(apartment.toString());
+        System.out.println(apartment_bobsDungeon.toString());
+
+        //Print details
+        System.out.println(apartment_bobsDungeon.getDetails());
 
         // 2. Rent Apartment out
         // Print state
+        apartment_bobsDungeon.rent("Alistair", new DateTime(8,8,2018), 5);
+
+        // Print state
+        System.out.println(apartment_bobsDungeon.toString());
+
+        //Print details
+        System.out.println(apartment_bobsDungeon.getDetails());
+
+
+
+        // Test Apartment
+        // 1. Create Apartment(s)
+        PremiumSuite premiumSuite_bobsHome = new PremiumSuite("A_BobsDungeon", "13",
+                "Scream Street", "Frankston", PropertyStatus.Available, new DateTime(1,8,2018));
+
+        // Print state
+        System.out.println(premiumSuite_bobsHome.toString());
+
+        //Print details
+        System.out.println(premiumSuite_bobsHome.getDetails());
+
+        // 2. Rent Apartment out
+        // Print state
+        //apartment_bobsDungeon.rent("Alistair", new DateTime(8,8,2018), 5);
+
+        // Print state
+        //System.out.println(apartment_bobsDungeon.toString());
+
+        //Print details
+        //System.out.println(apartment_bobsDungeon.getDetails());
+
         // 3. Check Apartment in
         // Print state
         // 4. Perform maintenance
