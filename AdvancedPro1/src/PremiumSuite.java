@@ -1,3 +1,4 @@
+import utilities.CalendarUtils;
 import utilities.DateTime;
 
 public class PremiumSuite extends RentalProperty
@@ -34,8 +35,41 @@ public class PremiumSuite extends RentalProperty
     }
 
     @Override
-    public boolean rent(String customerID, DateTime rentDate, int numOfRentDay)
+    public boolean canRent(String customerID, DateTime rentDate, int numOfRentDay)
     {
-        return false;
+        if (getCurrentPropertyStatus() != PropertyStatus.Available)
+        {
+            return false;
+        }
+
+        if (numOfRentDay < 1)
+        {
+            return false;
+        }
+
+        //Function for maintenance and availability
+
+        // Check last maintenance date on PS x
+        // Start of rental period + y number of days
+        // next maintenance date and rental period cannot intersect
+        // next maintenance date = last maintenance date + 10
+        // last maintenance date |||
+
+        // Next maintenance ...
+        long nextMaintenance = new DateTime(lastMaintenanceDate, 10).getTime();
+
+        // Start of rental period = rent date
+        long startOfRentalPeriod = rentDate.getTime();
+
+        // End of rental period = rent date + numRentDays
+        long endOfRentalPeriod = new DateTime(rentDate, numOfRentDay).getTime();
+
+        if (startOfRentalPeriod < nextMaintenance && nextMaintenance < endOfRentalPeriod)
+        {
+            return false;
+        }
+
+        return true;
     }
+
 }

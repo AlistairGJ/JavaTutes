@@ -114,32 +114,32 @@ abstract class RentalProperty //Abstract class as will never instantiate 'proper
     // move index 0 to 1
     // add at index 0 nb
 
+    public abstract boolean canRent(String customerID, DateTime rentDate, int numOfRentDay);
 
     //"Conditions for renting"
-    public abstract boolean rent(String customerID, DateTime rentDate, int numOfRentDay);
-
-    protected void doRent(String customerID, DateTime rentDate, int numOfRentDay)
+    public boolean rent(String customerID, DateTime rentDate, int numOfRentDay)
     {
-        //1. Updating the property status, COMMON
-        currentPropertyStatus = PropertyStatus.Rented;
+        if (canRent(customerID, rentDate, numOfRentDay))
+        {
+            currentPropertyStatus = PropertyStatus.Rented;
 
-        //2. Creating a new rental record, COMMON
-        // Call the RentalRecord constructor
+            double rentalFee = getRentalRate() * numOfRentDay;
 
-        double rentalFee = getRentalRate() * numOfRentDay;
+            DateTime estReturnDate = new DateTime(rentDate, numOfRentDay);
 
-        DateTime estReturnDate = new DateTime(rentDate, numOfRentDay);
+            RentalRecord aRecordi = new RentalRecord(rentDate, estReturnDate,
+                    null, rentalFee,
+                    0.0, customerID, propertyID);
 
-        RentalRecord aRecordi = new RentalRecord(rentDate, estReturnDate,
-                null, rentalFee,
-                0.0, customerID, propertyID);
-
-        //3. Updating the rental record array, COMMON
-        addRentalRecord(aRecordi);
-
-        //4. and any other operations you consider necessary.
-        // From checking the rest of this class, nothing else
+            addRentalRecord(aRecordi);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
+
 
     public String toString()
     {
@@ -173,17 +173,3 @@ abstract class RentalProperty //Abstract class as will never instantiate 'proper
     }
 
 }
-
-
-
-
-
-    /*void constructID(){
-        String Apartment;
-        if(propertyType == Apartment)
-            ();//allocate A_
-        else {
-            //allocate S_
-            ();
-        }
-    }*/

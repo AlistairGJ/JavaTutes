@@ -34,8 +34,9 @@ public class Apartment extends RentalProperty
         }
     }
 
-    //"Conditions for renting"
-    public boolean rent(String customerID, DateTime rentDate, int numOfRentDay)
+    @Override
+    // Purpose = can the property be rented or not?
+    public boolean canRent(String customerID, DateTime rentDate, int numOfRentDay)
     {
         if (getCurrentPropertyStatus() != PropertyStatus.Available)
         {
@@ -67,8 +68,6 @@ public class Apartment extends RentalProperty
         //4. and any other operations you consider necessary.
 
         // We will add a ... (method)
-
-        doRent(customerID, rentDate, numOfRentDay);
 
         return true;
     }

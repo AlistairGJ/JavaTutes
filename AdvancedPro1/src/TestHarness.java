@@ -38,7 +38,7 @@ public class TestHarness //Should this class be called main??? (no...)
 
 
         // Test Apartment
-        // 1. Create Apartment(s)
+        // 1. Create PS
         PremiumSuite premiumSuite_bobsHome = new PremiumSuite("A_BobsDungeon", "13",
                 "Scream Street", "Frankston", PropertyStatus.Available, new DateTime(1,8,2018));
 
@@ -50,13 +50,13 @@ public class TestHarness //Should this class be called main??? (no...)
 
         // 2. Rent Apartment out
         // Print state
-        //apartment_bobsDungeon.rent("Alistair", new DateTime(8,8,2018), 5);
+        premiumSuite_bobsHome.rent("Alistair", new DateTime(12,8,2018), 5);
 
         // Print state
-        //System.out.println(apartment_bobsDungeon.toString());
+        System.out.println(premiumSuite_bobsHome.toString());
 
         //Print details
-        //System.out.println(apartment_bobsDungeon.getDetails());
+        System.out.println(premiumSuite_bobsHome.getDetails());
 
         // 3. Check Apartment in
         // Print state
