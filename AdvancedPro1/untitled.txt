@@ -1,0 +1,11 @@
+
+
+- Doing something multiple times - FOR LOOP
+
+
+for (START; END; INCREMENT)
+{
+
+}
+
+if (condition)

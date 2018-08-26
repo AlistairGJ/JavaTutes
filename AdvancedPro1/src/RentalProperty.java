@@ -1,24 +1,17 @@
 import utilities.DateTime;
 
-/**
- * Created by alistairgj on 28/7/18.
- */
+import java.util.Date;
 
-//The RentalProperty class has 7 attributes and 2 methods
 
-abstract class RentalProperty //Abstract class as will never instantiate 'property'
+abstract class RentalProperty // Abstract class -> as will never instantiate 'property'
 {
-    //Defining the ATTRIBUTES
-    private String propertyID; //Need to add Apartment ID (A_) or Premium ID (S_)
-    private String streetNum; //Could be 55A
-    private String streetName;
-    private String suburb;
-    private int numBedrooms; //ONLY 1, 2 or 3
-    //private String propertyType; //ONLY Apartment (A_) or Premium Suite (S_)
-    //Property type will not be a field (this will come from CLASS)
-    //"Instead of checking by field, you check by asking 'instance of' ANS = 'Instance
-    //of one of the classes' - more flexibility
-    private PropertyStatus currentPropertyStatus; //ONLY Available, Rented, Maintenance
+    //Defining the Attributes
+    private String propertyID; // Field for propertyID (the user must maintain the A_ or S_ convention)
+    private String streetNum; // Field for street number - String because could be 55A (for example)
+    private String streetName; // Field for street name
+    private String suburb; // Field for suburb
+    private int numBedrooms; // For Apartment 1, 2 or 3 'getRentalRate' in Apartment Class
+    private PropertyStatus currentPropertyStatus; // Enumeration - Available, Rented, Maintenance
     private RentalRecord[] rentalHistory; //As per instruction MUST be type array (list would have allowed
     //old values to drop without extra code...
     private int countOfRecord;
@@ -38,22 +31,25 @@ abstract class RentalProperty //Abstract class as will never instantiate 'proper
         countOfRecord = 0; //Count will always start at 0 for our system
     }
 
-    //Need accessors - getters
+    // Accessor for PropertyID
     public String getPropertyID()
     {
         return propertyID;
     }
 
+    // Accessor for StreetNum - not currently used as FlexiRent System not complete (confirm)
     public String getStreetNum()
     {
         return streetNum;
     }
 
+    // Accessor for StreetNum - not currently used as FlexiRent System not complete (confirm)
     public String getStreetName()
     {
         return streetName;
     }
 
+    // Accessor for StreetNum - not currently used as FlexiRent System not complete (confirm)
     public String getSuburb()
     {
         return suburb;
@@ -115,8 +111,11 @@ abstract class RentalProperty //Abstract class as will never instantiate 'proper
     // add at index 0 nb
 
     public abstract boolean canRent(String customerID, DateTime rentDate, int numOfRentDay);
+    // canRent method (called inside rent, ln 123), and the logic is deferred until it is
+    // used in an instance of either apartment or premium suite
+    // --> We defer the logic because it varies for each child
 
-    //"Conditions for renting"
+    // Method for confirming the conditions for renting"
     public boolean rent(String customerID, DateTime rentDate, int numOfRentDay)
     {
         if (canRent(customerID, rentDate, numOfRentDay))
@@ -166,10 +165,90 @@ abstract class RentalProperty //Abstract class as will never instantiate 'proper
 
         for (int index = 0; index < countOfRecord; index++)
         {
-            s += rentalHistory[index].getDetails(); //We now 'have access' to all the stuff in rental rec.
+            s += rentalHistory[index].getDetails(); // We now 'have access' to all the stuff in rental rec.
             s += "--------------------------------------";
         }
         return s;
+    }
+
+    // Assumption: We can never prevent someone form returning the keys, this will be
+    // reflected in the rental fee
+
+    private boolean canReturn(DateTime returnDate)
+    {
+        DateTime rentDate = rentalHistory[0].getRentDate();
+        // Pulling the rent date from the most recent record
+
+        if (currentPropertyStatus == PropertyStatus.Rented &&
+                returnDate.getTime() >= rentDate.getTime())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public abstract void updateRentalFee(RentalRecord record);
+
+    public abstract void updateLateFee(RentalRecord record);
+
+    public boolean returnProperty(DateTime returnDate)
+    {
+        if (canReturn(returnDate))
+        {
+            currentPropertyStatus = PropertyStatus.Available;
+
+
+            // Update corresponding rental record
+            RentalRecord correspondingRecord = rentalHistory[0];
+
+            // actualReturnDate - COMMON
+            correspondingRecord.setActualReturnDate(returnDate);
+
+            // rentalFee - SUB C.
+            updateRentalFee(correspondingRecord);
+
+            // lateFee - SUB C.
+            updateLateFee(correspondingRecord);
+
+            return true;
+        }
+        return false;
+    }
+
+    // Rental Property
+
+    public boolean performMaintenance()
+    {
+        if (currentPropertyStatus == PropertyStatus.Available)
+        {
+            currentPropertyStatus = PropertyStatus.Maintenance;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public boolean completeMaintenance(DateTime completionDate)
+    {
+        if (currentPropertyStatus == PropertyStatus.Maintenance)
+        {
+            currentPropertyStatus = PropertyStatus.Available;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public String getCustomerID()
+    {
+        return rentalHistory[0].getCustomerID();
     }
 
 }

@@ -1,6 +1,8 @@
 import utilities.CalendarUtils;
 import utilities.DateTime;
 
+import java.util.Date;
+
 public class PremiumSuite extends RentalProperty
 {
     private DateTime lastMaintenanceDate;
@@ -72,4 +74,35 @@ public class PremiumSuite extends RentalProperty
         return true;
     }
 
+    // rentalFee - SUB C.
+    // Assumption: As we are not told how to handle an early return of a premium suite
+    // I am assuming that we charge the full amount booked
+    public void updateRentalFee(RentalRecord record)
+    {
+        int numOfRentDays = DateTime.diffDays(record.getEstimatedReturnDate(), record.getRentDate());
+        double fee = getRentalRate() * numOfRentDays;
+        record.setRentalFee(fee);
+    }
+
+    public void updateLateFee(RentalRecord record)
+    {
+        int numOfLateDays = DateTime.diffDays(record.getActualReturnDate(), record.getEstimatedReturnDate());
+        if (numOfLateDays < 0)
+        {
+            numOfLateDays = 0;
+        }
+        double fee = numOfLateDays * 662.0;
+        record.setLateFee(fee);
+    }
+
+    @Override
+    public boolean completeMaintenance(DateTime completionDate)
+    {
+        if(super.completeMaintenance(completionDate)) // Run the version that is in the parent
+        {
+            lastMaintenanceDate = completionDate;
+            return true;
+        }
+        return false;
+    }
 }

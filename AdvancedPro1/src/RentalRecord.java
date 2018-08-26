@@ -2,7 +2,7 @@ import utilities.DateTime;
 
 public class RentalRecord
 {
-    //Defining the attributes
+    // Defining the attributes for RentalRecords
     private String recordID;
     private DateTime rentDate;
     private DateTime estimatedReturnDate;
@@ -11,7 +11,7 @@ public class RentalRecord
     private double lateFee;
     private String customerID;
 
-    //Constructor
+    // Constructor for RentalRecords
     public RentalRecord(DateTime rentDate, DateTime estimatedReturnDate, DateTime actualReturnDate,
                         double rentalFee, double lateFee, String customerID, String propertyID)
     {
@@ -24,12 +24,13 @@ public class RentalRecord
         this.recordID = propertyID + "_" + customerID + "_" + rentDate.getEightDigitDate();
     }
 
-    //Need accessors - getters
+    // Accessor for RecordID
     public String getRecordID()
     {
         return recordID;
     }
 
+    // Accessor for RentDate
     public DateTime getRentDate()
     {
         return rentDate;
@@ -45,23 +46,25 @@ public class RentalRecord
         return actualReturnDate;
     }
 
+    // Unused - haven't completed FlexiRent Menu System
     public double getRentalFee()
     {
         return rentalFee;
     }
 
+    // Unused - haven't completed FlexiRent Menu System
     public double getLateFee()
     {
         return lateFee;
     }
 
+    // Unused - haven't completed FlexiRent Menu System
     public String getCustomerID()
     {
         return customerID;
     }
 
-    //ToString - get a string representation of an object
-    //Useful because can print straight away
+    // ToString - get a string representation of an object
     public String toString()
     {
         String s = recordID + ":" + rentDate + ":" + estimatedReturnDate + ":";
@@ -94,4 +97,21 @@ public class RentalRecord
         return s;
     }
 
+    // Mutator
+    public void setActualReturnDate(DateTime actualReturnDate)
+    {
+        this.actualReturnDate = actualReturnDate;
+    }
+
+    // Mutator
+    public void setRentalFee(double rentalFee)
+    {
+        this.rentalFee = rentalFee;
+    }
+
+    // Mutator
+    public void setLateFee(double lateFee)
+    {
+        this.lateFee = lateFee;
+    }
 }
